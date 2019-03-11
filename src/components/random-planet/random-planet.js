@@ -6,8 +6,8 @@ import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator";
 
 export default class RandomPlanet extends Component {
-    componentWillMount() {
-        setInterval(this.updatePlanet, 2500);
+    componentDidMount() {
+        setInterval(this.updatePlanet, 5000);
     }
 
     swapiService = new SwapiService();
