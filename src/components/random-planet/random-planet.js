@@ -7,7 +7,11 @@ import ErrorIndicator from "../error-indicator";
 
 export default class RandomPlanet extends Component {
     componentDidMount() {
-        setInterval(this.updatePlanet, 5000);
+        this.updatePlanet();
+        this.interval = setInterval(this.updatePlanet, 10000);
+    }
+    componentWillMount() {
+        clearInterval(this.interval);
     }
 
     swapiService = new SwapiService();
