@@ -34,14 +34,21 @@ export default class App extends Component {
                     Toogle Random Planet
                 </button>
                 <PeoplePage/>
-                <ItemList
-                    onItemSelected={this.onPersonSelected}
-                    getData={this.swapiService.getAllPlanets}
-                />
-                <ItemList
-                    onItemSelected={this.onPersonSelected}
-                    getData={this.swapiService.getAllStarships}
-                />
+                <div className="col-md-6 mb2">
+                    <ItemList
+                        onItemSelected={this.onPersonSelected}
+                        getData={this.swapiService.getAllPlanets}
+                        renderItem={(item) =>
+                            (<span>{item.name}</span>)}
+                    />
+                </div>
+                <div className="col-md-6 mb2">
+                    <ItemList
+                        onItemSelected={this.onPersonSelected}
+                        getData={this.swapiService.getAllStarships}
+                        renderItem={(item) => item.name}
+                    />
+                </div>
             </div>
         );
     }
