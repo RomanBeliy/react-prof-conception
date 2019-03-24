@@ -20,14 +20,12 @@ export default class PersonDetails extends Component {
 
     updatePerson() {
         const { personId } = this.props;
-        console.log('this.props', this.props);
         if (!personId) {
             return;
         }
         this.swapiService
             .getPerson(personId)
             .then((person) => {
-                console.log('zzzzz', person)
                 this.setState({person})
             });
     }
@@ -40,7 +38,6 @@ export default class PersonDetails extends Component {
         const {
             id, name, gender, birthYear, eyeColor
         } = this.state.person;
-        console.log('this.state.people', this.state.person)
         return (
             <div className="person-details card">
                 <img className="person-image"
